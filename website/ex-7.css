@@ -1,0 +1,149 @@
+/* ------------------ Grid Container ------------------ */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    /* 3 columns */
+    grid-auto-rows: 300px;
+    /* enough height for text + button */
+    justify-content: center;
+    gap: 30px;
+    /* space between boxes */
+    padding: 0;
+    margin: 0;
+}
+
+/* ------------------ Grid Items ------------------ */
+.items {
+    display: flex;
+    flex-direction: column;
+    /* stack lang + sub + button */
+    justify-content: flex-start;
+    /* text on top */
+    align-items: center;
+    /* center horizontally */
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(248, 248, 248);
+    font-weight: bolder;
+    font-size: 25px;
+    padding: 15px;
+}
+
+/* ------------------ Language Text ------------------ */
+.lang {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* ------------------ Sub Text ------------------ */
+.sub {
+    display: block;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: normal;
+    color: #555;
+}
+
+.last {
+    font-weight: normal;
+    font-size: 15px;
+    text-decoration: none;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.last-1 {
+    font-weight: normal;
+    font-size: 10px;
+    text-decoration: none;
+    padding-bottom: 5px;
+}
+
+/* ------------------ Button ------------------ */
+.b-1 {
+    margin-top: auto;
+    /* push button to bottom of item */
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: rgb(36, 191, 36);
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.b-1 a {
+    color: white;
+    text-decoration: none;
+    /* remove underline */
+}
+
+/* ------------------ Download Header ------------------ */
+.download-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding-bottom: 50px;
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    display: block;
+    padding-left: 215px;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.meta {
+    font-size: 18px;
+    color: #3d3d3d;
+}
+@media screen and (max-width: 1000px) {
+    .container {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* flexible 2 columns */
+        gap: 20px;
+    }
+
+    .items {
+        width: 100%;       /* fit inside the flexible column */
+        max-width: 400px;  /* desktop max width preserved */
+        margin: 0 auto;    /* center horizontally */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr; /* 1 column */
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .items {
+        width: 100%;       /* fill the screen */
+        max-width: 400px;
+        margin: 0 auto;    /* center horizontally */
+    }
+}
+/* ------------------ Mobile Responsive Fix ------------------ */
+@media screen and (max-width: 600px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;  /* 1 box per row */
+        justify-items: center;       /* center the items horizontally */
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .items {
+        width: 100%;       /* box fills available column */
+        max-width: 400px;  /* optional, keep desktop max width */
+    }
+}
